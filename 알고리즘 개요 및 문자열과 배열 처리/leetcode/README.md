@@ -101,7 +101,6 @@ for i in range(len(nums) - 2):
 
 ```python
 for i in range(len(nums) - 2):
-
     # ... (2) ...
 
     while left < right:
@@ -112,11 +111,9 @@ for i in range(len(nums) - 2):
 
 ```python
 for i in range(len(nums) - 2):
-
     # ... (2) ...
 
     while left < right:
-
         # ... (3) ...
 
         if sum < 0:
@@ -133,15 +130,12 @@ for i in range(len(nums) - 2):
 
 ```python
 for i in range(len(nums) - 2):
-
     # ... (2) ...
 
     while left < right:
-
         # ... (3) ...
 
         else:
-
             # ... (4) ...
             
             while left < right and nums[left] == nums[left + 1]:
@@ -155,17 +149,13 @@ for i in range(len(nums) - 2):
 
 ```python
 for i in range(len(nums) - 2):
-
     # ... (2) ...
 
     while left < right:
-
         # ... (3) ...
 
         else:
-
             # ... (4) ...
-
             # ... (5) ...
             
             left += 1
