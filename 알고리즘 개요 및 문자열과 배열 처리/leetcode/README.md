@@ -79,7 +79,100 @@ return sum(list(counters.values())) + is_exist_odd
 
 실패 내용 중 첫 번째 방식과 같이 매우 단순 무식한 알고리즘을 브루트 포스라고 한다. 이 방식으로 문제를 해결하려는 경우 시간 복잡도는 O(N<sup>(반복문 중첩 수)</sup>)이므로, 문제에서 요구한 시간을 초과하게 된다.
 
-(이따가 투 포인터 개념 정리...)
+투 포인터 방식은 단어의 의미 그대로 대개는 시작과 끝점 또는 왼쪽과 오른족 포인터 두 지점을 기준으로 범위를 좁혀나가는 방식이다. 이는 정렬된 리스트에서 범위를 좁혀나가는데 유용하다.
+
+#### 1. 입력받은 리스트를 오름차순으로 정렬하고, 총 합이 0인 리스트를 결과로 저장하기 위해 빈 리스트로 초기화한다.
+
+```python
+nums.sort()
+groups = []
+```
+
+### 2. 두 개의 포인터를 각각 첫 번째 요소와 마지막 요소를 가리키도록 초기화할 것이므로 리스트의 총 길이에서 2만큼 빼준 만큼만 반복을 수행하고, 요소의 값이 같은 경우 중복 수행되지 않도록 처리한다.
+
+```python
+for i in range(len(nums) - 2):
+    if i > 0 and nums[i] == nums[i - 1]:
+        continue
+    left, right = i + 1, len(nums) - 1
+```
+
+### 3. 두 개의 포인터가 서로 겹친 후 지나치게 되면 존재하지 않는 범위를 찾게 되므로 `2`의 반복문 안에서 왼쪽 포인터의 인덱스가 오른쪽 포인터의 인덱스보다 작을때에만 요소들(`i-1`, `i`, `i+1`)의 합계를 구하도록 반복한다.
+
+```python
+for i in range(len(nums) - 2):
+
+    # ... (2) ...
+
+    while left < right:
+        sum = nums[i] + nums[left] + nums[right]
+```
+
+### 4. `3`의 반복문 안에서 구한 3개의 요소 합계가 음수인 경우 두 개의 포인터 중 더 작은 값을 가리키는 왼쪽 포인터를 우측으로 한 칸 이동시키고, 요소의 합계가 양수인 경우 두 개의 포인터 중 더 큰 값을 가리키는 오른쪽 포인터를 왼쪽으로 한 칸 이동시키면서 범위를 줄여나가도록 한다. 만약, 요소 합계가 0이 된다면 `1`의 리스트에 해당 요소들을 리스트로 추가한다.
+
+```python
+for i in range(len(nums) - 2):
+
+    # ... (2) ...
+
+    while left < right:
+
+        # ... (3) ...
+
+        if sum < 0:
+            left += 1
+
+        elif sum > 0:
+            right -= 1
+
+        else:
+            groups.append([nums[i], nums[left], nums[right]])
+```
+
+### 5. 리스트를 오름차순으로 정렬하였기 때문에 같은 값이 바로 뒤에 나타날 수 있다. 따라서, `4`의 마지막 조건(합계가 0일때)이 수행된 후에는 같은 값에 대한 검사가 수행되지 않도록 조건에 맞게 포인터를 이동시킨다.
+
+```python
+for i in range(len(nums) - 2):
+
+    # ... (2) ...
+
+    while left < right:
+
+        # ... (3) ...
+
+        else:
+
+            # ... (4) ...
+            
+            while left < right and nums[left] == nums[left + 1]:
+                left += 1
+
+            while left < right and nums[right] == nums[right - 1]:
+                right -= 1
+```
+
+### 6. 또한, 현재 포인터 범위에서는 요소 3개의 합이 0인 지점을 이미 찾았기때문에 더 이상 찾을 수 없으므로 포인터의 범위를 각각 한 칸씩 줄여준다. 이어서 반복문이 종료되면 `1`의 리스트를 반환하도록 한다.
+
+```python
+for i in range(len(nums) - 2):
+
+    # ... (2) ...
+
+    while left < right:
+
+        # ... (3) ...
+
+        else:
+
+            # ... (4) ...
+
+            # ... (5) ...
+            
+            left += 1
+            right -= 1
+
+return groups
+```
 
 ## ✔ [561. Array Partition I](https://leetcode.com/problems/array-partition-i/)
 
@@ -101,4 +194,10 @@ for i in range(0, len(nums), 2):
     sum += nums[i]
 
 return sum
+```
+
+#### +) 슬라이싱을 사용하면 코드 한 줄로 문제를 해결할 수 있다.
+
+```python
+return sum(nums.sorted()[::2])
 ```
