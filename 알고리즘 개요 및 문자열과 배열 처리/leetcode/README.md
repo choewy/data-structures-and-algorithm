@@ -1,16 +1,12 @@
-# 문제 풀이
+# leetcode
+    
+## ✔ [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 
-## 03월 11일
+### 내용
 
-### 그룹 애너그램
+애너그램은 특정 문자열의 문자를 재배치하여 만든 새로운 문자열이다. 여러 개의 문자열이 배열로 주어질 때 애너그램으로 짝지어보자.
 
-#### 문제
-
-- [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
-
-애너그램은 특정 문자열의 문자를 재배치하여 만든 새로운 문자열이다. 여러 개의 문자열이 배열로 주어질 때, 애너그램으로 짝지어보자.
-
-#### 풀이(`성공`)
+### 풀이
 
 문제를 보자마자 엑셀에서의 '중복 제거'가 떠올랐다. 즉, 특정 대상의 통계를 구하기 위해서는 해당 대상을 중복 제거하여야 한다. 이를 가능케 하는 방법으로 다음과 같이 크게 2가지를 떠올려보았다.
 
@@ -38,15 +34,13 @@ for word in strs:
 return list(groups.values())
 ```
 
-### 팰린드롬
+## ✔ [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 
-#### 문제
-
-- [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
+### 내용
 
 팰린드롬은 문자열의 가운데를 기준으로 하여 2개로 나누었을 때, 첫 번째 문자열과 두 번째 문자열의 역순이 같은 문자열을 말한다.
 
-#### 풀이(`성공`)
+### 풀이
 
 팰린드롬의 규칙성을 다음과 같이 정리해보았다.
 
@@ -82,15 +76,13 @@ for character, count in counters.items():
 return sum(list(counters.values())) + is_exist_odd
 ```
 
-### 세 수의 합
+## ❌ [15. 3Sum](https://leetcode.com/problems/3sum/)
 
-#### 문제
-
-- [15. 3Sum](https://leetcode.com/problems/3sum/)
+### 내용
 
 정수 값을 리스트로 입력받아 세 개의 요소로 구성된 2차원 리스트(`ex) [[i, j, k], [x, y, z]]`로 반환해야 한다. 이때, 하나의 리스트(`[i, j, k]`)의 값은 서로 중첩되면 안 되며, 요소의 합이 0이 되어야 한다.
 
-#### 풀이(`실패`)
+### 풀이
 
 약 2시간 동안 두 번의 시도 끝에 결국에는 교재의 풀이 과정을 들여다보았다.
 
@@ -101,15 +93,13 @@ return sum(list(counters.values())) + is_exist_odd
 
 (이따가 투 포인터 개념 정리...)
 
-### 배열 파티션
+## ✔ [561. Array Partition I](https://leetcode.com/problems/array-partition-i/)
 
-#### 문제
-
-- [561. Array Partition I](https://leetcode.com/problems/array-partition-i/)
+### 내용
 
 길이가 2n인 정수 리스트를 입력받고, 정수를 n쌍으로 묶은 후 각각의 쌍의 최소값을 합한 결과가 최대가 되도록 반환하여야 한다.
 
-#### 풀이(`성공`)
+### 풀이
 
 문제를 이해하는데까지 약 30분 정도 소요되었는데, 문제를 이해한 후에는 생각보다 간단하게 해결할 수 있었다. 문제에서는 길이가 2n인 정수 리스트를 입력으로 받고, 이를 n쌍으로 묶은 후 각각의 쌍을 최소값을 전부 더한 값이 최대가 되도록 반환할 것을 요구하고 있다. 즉, 길이가 6인 정수 리스트를 입력 받는 경우 n은 3이 되고, 리스트를 3조각으로 나누고 각각의 최소값을 모두 합한 값이 가장 큰 값으로 출력되어야 하는 것이다. 따라서, 오름차순으로 정렬하여 각각의 리스트에 왼쪽에 위치한 값이 최소값이 되게 하고 반복문을 통해 왼쪽값을 더해주는 방식으로 접근하였다.
 
