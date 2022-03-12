@@ -27,7 +27,8 @@ class Solution:
         # (그림 #0)
         head = current = ListNode(0)
 
-        # (그림 #5)까지 반복 / (그림 #6)부터 종료
+        # (그림 #5)까지 반복
+        # (그림 #6)부터 종료
         while node1 and node2:
 
             # (그림 #1 ~ #5)
