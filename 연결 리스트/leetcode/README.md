@@ -10,7 +10,7 @@
 
 <img width="600" src="images/0_0_current.png">
 
-이 둘은 노드의 값을 기준으로 오름차순으로 정렬되어 있으며, 가장 왼쪽에 있는 노드가 각 연결 리스트의 head라고 할 수 있다. 그렇다면, 임시 노드를 생성하여 head로 정해놓고, 주어진 연결 리스트 2개의 노드 값을 비교한 결과에 따라 임시 노드 뒤에 연결시키면 되지 않을까라는 생각으로 문제에 접근해았다. 코드를 작성하기 전에 이 로직을 그림과 설명으로 나타내보면 다음과 같다.
+이 둘은 노드의 값을 기준으로 오름차순으로 정렬되어 있으며, 가장 왼쪽에 있는 노드가 각 연결 리스트의 head라고 할 수 있다. 그렇다면, 임시 노드를 생성하여 head로 정해놓고, 주어진 연결 리스트 2개의 노드 값을 비교한 결과에 따라 임시 노드 뒤에 연결시키면 되지 않을까라는 생각으로 문제에 접근하였다. 이를 그림과 설명으로 나타내보면 다음과 같다.
 
 > 코드에 남긴 주석과 함께 보면 훨씬 더 직관적으로 이해할 수 있을 것이다.
 
@@ -18,23 +18,23 @@
 
 <img width="600" src="images/0_1_dummy.png">
 
-#### 1. 입력받은 list1와 list2의 현재 노드를 각각 node1, node2로 하고, 이들의 값을 비교한다. 그 결과, 값이 동일하므로 `current의 자식 노드(current.next)`를 node2로 연결 및 이동(`current = current = next`)시키고, `node2는 다음 자식 노드(node2.next)`를 호출한다.
+#### 1. 입력받은 list1와 list2의 현재 포인터를 각각 node1, node2로 하고, 값을 비교한다. 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
 
 <img width="600" src="images/1_link.png">
 
-#### 2. node2가 존재하므로 다시 node1과 node2의 값을 비교한다. 그 결과, node1의 값이 더 작으므로 `current의 자식 노드(current.next)`를 node1로 연결 및 이동시키고, `node1는 다음 자식 노드(node1.next)`를 호출한다.
+#### 2. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
 
 <img width="600" src="images/2_link.png">
 
-#### 3. node1이 존재하므로 다시 node1과 node2의 값을 비교한다. 그 결과, node1의 값이 더 작으므로 `current의 자식 노드(current.next)`를 node1로 연결 및 이동시키고, `node1는 다음 자식 노드(node1.next)`를 호출한다.
+#### 3. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
 
 <img width="600" src="images/3_link.png">
 
-#### 4. node1이 존재하므로 다시 node1과 node2의 값을 비교한다. 그 결과, node2의 값이 더 작으므로 `current의 자식 노드(current.next)`를 node2로 연결 및 이동시키고,`node2는 다음 자식 노드(node2.next)`를 호출한다.
+#### 4. node2에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
 
 <img width="600" src="images/4_link.png">
 
-#### 5. node2가 존재하므로 다시 node1과 node2의 값을 비교한다. 그 결과, 이 둘의 값이 동일하므로 `current의 자식 노드(current.next)`를 node1로 연결 및 이동시키고,`node1는 다음 자식 노드(node1.next)`를 호출한다.
+#### 5. node1과 node2에 위치한 노드의 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
 
 <img width="600" src="images/5_link.png">
 
@@ -42,11 +42,11 @@
 > 
 > <img width="400" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
 
-#### 6. node1이 존재하지 않으므로 비교를 종료하고, `current의 자식 노드(current.next)`를 node2로 연결 및 이동시키고,`node2는 다음 자식 노드(node2.next)`를 호출한다.
+#### 6. node1에 위치한 노드가 존재하지 않으므로 비교를 종료한다. 이어서 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다.
 
 <img width="600" src="images/6_link.png">
 
-#### 7. 새롭게 재구성된 연결 리스트의 head는 제외하고 반환하여야 문제에서 원하는 답을 얻을 수 있으므로, `head의 자식 노드(head.next)`를 최종 결과로 반환한다.
+#### 7. 새롭게 재구성된 연결 리스트에서 head는 제외힌 싱테러 반환하여야 하므로, `head`의 자식 노드(head.next)를 최종 결과로 반환한다.
 
 <img width="600" src="images/7_link.png">
 
@@ -150,3 +150,10 @@ current : None
 return node
 ```
 
+## [328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)
+
+연결 리스트의 head가 주어진다. 홀수 인덱스의 모든 노드를 그룹화하고, 짝수 인덱스의 모든 노드를 그룹화하되 각각 그룹 내부의 상대적 순서는 입력에서와 동일하게 유지되도록 정렬된 연결 리스트를 반환하여야 한다. 이때, 첫 번째 노드의 인덱스는 홀수이며, 공간 복잡도 O(1)과 시간 복잡도 O(n)을 충족시켜야 한다.
+
+<img width="400" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven-linked-list.jpg">
+
+<img width="400" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven2-linked-list.jpg">
