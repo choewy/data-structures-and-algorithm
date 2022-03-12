@@ -14,27 +14,27 @@
 
 > 코드에 남긴 주석과 함께 보면 훨씬 더 직관적으로 이해할 수 있을 것이다.
 
-#### 0. 새로운 연결 리스트의 head 역할을 수행할 Dummy 노드를 생성한다(이 리스트의 현재 노드를 current라고 명명하였다).
+#### 0. 새로운 연결 리스트의 head가 되어줄 Dummy 노드를 생성한다(이 리스트의 현재 노드의 포인터를 current라고 명명하였다).
 
 <img width="600" src="images/0_1_dummy.png">
 
-#### 1. 입력받은 list1와 list2의 현재 포인터를 각각 node1, node2로 하고, 값을 비교한다. 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
+#### 1. 입력받은 list1와 list2의 포인터를 각각 node1, node2로 하고, 값을 비교한다. 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 2번 그림).
 
 <img width="600" src="images/1_link.png">
 
-#### 2. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
+#### 2. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 3번 그림).
 
 <img width="600" src="images/2_link.png">
 
-#### 3. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
+#### 3. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 4번 그림).
 
 <img width="600" src="images/3_link.png">
 
-#### 4. node2에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
+#### 4. node2에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 5번 그림).
 
 <img width="600" src="images/4_link.png">
 
-#### 5. node1과 node2에 위치한 노드의 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(그리고 다시 node1과 node2의 값을 비교한다).
+#### 5. node1과 node2에 위치한 노드의 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> node1에 위치한 노드가 존재하지 않으므로 반복 종료).
 
 <img width="600" src="images/5_link.png">
 
@@ -42,7 +42,7 @@
 > 
 > <img width="400" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
 
-#### 6. node1에 위치한 노드가 존재하지 않으므로 비교를 종료한다. 이어서 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다.
+#### 6. node2에 위치한 노드만 존재하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다.
 
 <img width="600" src="images/6_link.png">
 
