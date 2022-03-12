@@ -8,20 +8,7 @@ class ListNode:
         self.next = next
 
 
-def link(node, value):
-    while node.next:
-        node = node.next
-    node.next = ListNode(value)
-
-
-def show(node):
-    values = []
-    while node:
-        values.append(node.val)
-        node = node.next
-    print(values)
-
-
+# 제출 코드
 class Solution:
     def mergeTwoLists(self, node1: Optional[ListNode], node2: Optional[ListNode]) -> Optional[ListNode]:
         # (그림 #0)
@@ -51,14 +38,28 @@ class Solution:
         return head.next
 
 
-L1 = ListNode(1)
-for v in [2, 4]:
-    link(L1, v)
+# 테스트 코드
+if __name__ == "__main__":
+    def add(node, value):
+        while node.next:
+            node = node.next
+        node.next = ListNode(value)
 
-L2 = ListNode(1)
-for v in [3, 4]:
-    link(L2, v)
+    def pprint(node):
+        values = []
+        while node:
+            values.append(node.val)
+            node = node.next
+        print(values)
 
+    # 연결 리스트 생성
+    L1 = ListNode(1)
+    for v in [2, 4]:
+        add(L1, v)
 
-solution = Solution()
-show(solution.mergeTwoLists(L1, L2))
+    L2 = ListNode(1)
+    for v in [3, 4]:
+        add(L2, v)
+
+    solution = Solution()
+    pprint(solution.mergeTwoLists(L1, L2))

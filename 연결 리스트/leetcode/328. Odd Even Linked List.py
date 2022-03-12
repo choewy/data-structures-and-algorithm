@@ -1,3 +1,5 @@
+from optparse import Option
+from tkinter import E
 from typing import Optional
 
 
@@ -9,16 +11,21 @@ class ListNode:
 
 
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        current, node = head, None
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None:
+            return None
 
-        while current:
-            next = current.next
-            current.next = node
-            node = current
-            current = next
+        odd = head
+        even = even_head = head.next
 
-        return node
+        while even and even.next:
+            odd.next = odd.next.next
+            even.next = even.next.next
+            odd = odd.next
+            even = even.next
+        odd.next = even_head
+
+        return head
 
 
 # 테스트 코드
@@ -36,9 +43,9 @@ if __name__ == "__main__":
         print(values)
 
     # 연결 리스트 생성
-    L = ListNode(1)
+    L1 = ListNode(1)
     for v in [2, 3, 4, 5]:
-        add(L, v)
+        add(L1, v)
 
     solution = Solution()
-    pprint(solution.reverseList(L))
+    pprint(solution.oddEvenList(L1))

@@ -1,29 +1,16 @@
 from typing import Optional
 
+from pytz import NonExistentTimeError
+
 
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
-        self.next = next
+        self.next = NonExistentTimeError
 
 
-class LinkedList:
-    def __init__(self) -> None:
-        self.head = None
-
-    def append(self, val):
-        if not self.head:
-            self.head = ListNode(val)
-            return
-
-        node = self.head
-        while node.next:
-            node = node.next
-
-        node.next = ListNode(val)
-
-
+# 제출코드
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         arr = []
@@ -43,11 +30,27 @@ class Solution:
         return True
 
 
-l1 = LinkedList()
+# 테스트 코드
+if __name__ == "__main__":
+    class LinkedList:
+        def __init__(self) -> None:
+            self.head = None
 
-for val in [1, 2, 2, 1]:
-    l1.append(val)
+        def append(self, val):
+            if not self.head:
+                self.head = ListNode(val)
+                return
 
+            node = self.head
+            while node.next:
+                node = node.next
 
-solution = Solution()
-print(solution.isPalindrome(l1.head))
+            node.next = ListNode(val)
+
+    l1 = LinkedList()
+
+    for val in [1, 2, 2, 1]:
+        l1.append(val)
+
+    solution = Solution()
+    print(solution.isPalindrome(l1.head))
