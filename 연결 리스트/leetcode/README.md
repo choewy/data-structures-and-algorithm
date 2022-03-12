@@ -46,7 +46,7 @@
 
 <img width="600" src="images/6_link.png">
 
-#### 7. 새롭게 재구성된 연결 리스트의 head는 제외하고 반환하여야 문제에서 원하는 답을 얻을 수 있으므로, `head의 자식 노드(head.next`를 최종 결과로 반환한다.
+#### 7. 새롭게 재구성된 연결 리스트의 head는 제외하고 반환하여야 문제에서 원하는 답을 얻을 수 있으므로, `head의 자식 노드(head.next)`를 최종 결과로 반환한다.
 
 <img width="600" src="images/7_link.png">
 
