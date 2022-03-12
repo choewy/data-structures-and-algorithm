@@ -39,7 +39,8 @@
 <img width="600" src="images/5_link.png">
 
 > 본 내용은 leetcode에서 제공한 그림(아래 참고)을 토대로 작성하였기 때문에 `그림 1`과 `그림 5`가 헷갈릴 수도 있다. 결론만 말하자면, 두 개의 노드 값이 동일한 경우 node1, node2 중 아무거나 선택해도 무방하다.
-> <img width="600" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
+> 
+> <img width="400" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
 
 #### 6. node1이 존재하지 않으므로 비교를 종료하고, `current의 자식 노드(current.next)`를 node2로 연결 및 이동시키고,`node2는 다음 자식 노드(node2.next)`를 호출한다.
 
