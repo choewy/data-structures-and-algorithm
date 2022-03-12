@@ -60,6 +60,93 @@
 
 연결 리스트의 `head`가 입력으로 주어지며, 해당 연결 리스트가 팰린드롬인 경우 `True`를 아닐 경우는 `False`를 반환하여야 한다.
 
+## ✔ [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+### 내용
+
+연결 리스트의 `head`가 주어지며, 이를 역순으로 재구성한 후 반환하여야 한다.
+
+이 문제는 위의 [21. Merge Two Sorted Lists](/#-21-merge-two-sorted-lists)와 같이 새로운 노드를 생성하는 방식으로 해결하는데, 문제에서 주어진 예시로 과정을 나타내보면 다음과 같다.
+
+> ```
+> input : [1, 2, 3, 4, 5]
+> output : [5, 4, 3, 2, 1]
+> ```
+
+#### 1. 현재 노드(`current`)를 연결 리스트의 `head`로 정하고, 새로운 노드(`node`)를 None으로 초기화한다.
+
 ```python
+current, node = head, None
+```
+
+#### 2. 현재 노드 즉, 기존 연결 리스트의 head가 되는 모든 노드를 탐색하며 새로운 노드로 값을 넘겨준다. 이 과정을 다음과 같이 나타낼 수 있다.
+
+- **첫 번째 실행 과정**
 
 ```
+current: ListNode: [1 -> 2 -> 3 -> 4 -> 5]
+            
+1) next = ListNode: [2 -> 3 -> 4 -> 5]
+2) current.next = None
+3) node = ListNode: [1]
+4) current = ListNode: [2 -> 3 -> 4 -> 5]
+```
+
+- **두 번째 실행 과정**
+
+```
+current: ListNode: [2 -> 3 -> 4 -> 5]
+
+1) next = ListNode: [3 -> 4 -> 5]
+2) current.next = ListNode: [1]
+3) node = ListNode: [2 -> 1]
+4) current = ListNode: [3 -> 4 -> 5]
+```
+
+- **세 번째 실행 과정**
+
+```
+current: ListNode: [3 -> 4 -> 5]
+
+1) next = ListNode: [4 -> 5]
+2) current.next = ListNode: [2 -> 1]
+3) node = ListNode: [3 -> 2 -> 1]
+4) current = ListNode: [4 -> 5]
+```
+
+- **네 번째 실행 과정**
+
+```
+current: ListNode: [4 -> 5]
+
+1) next = ListNode: [5]
+2) current.next = ListNode: [3 -> 2 -> 1]
+3) node = ListNode: [4 -> 3 -> 2 -> 1]
+4) current = ListNode: [5]
+```
+
+- **다섯 번째 실행 과정**
+
+```
+current: ListNode: [5]
+            
+1) next = None
+2) current.next = ListNode: [4 -> 3 -> 2 -> 1]
+3) node = ListNode: [5 -> 4 -> 3 -> 2 -> 1]
+4) current = ListNode: None
+```
+
+- **여섯 번째 실행 과정**
+
+```
+current : None
+
+반복 종료
+```
+
+#### 3. 새롭게 구성된 node를 반환한다.
+
+```python
+return node
+```
+
