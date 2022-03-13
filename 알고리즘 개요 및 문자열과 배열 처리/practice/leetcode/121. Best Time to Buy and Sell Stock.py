@@ -4,27 +4,28 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # 반복문으로 해야함
-        # 이유? 아래 테스트케이스 첫 번째와 같이
-        # 사려는 값을 최소값으로 구하는 경우
-        # 찾을 수 없는 상횡이 발생할 수 있음
+        buy = prices.pop(0)
+        profit = 0
 
-        buy = min(prices)
-        buy_index = prices.index(buy)
+        while prices:
+            price = prices.pop(0)
 
-        prices = prices[buy_index:]
-        sell = max(prices)
-        sell_index = prices.index(sell) + buy_index
+            if price < buy:
+                buy = price
 
-        if buy_index < sell_index:
-            return sell - buy
+            if profit < price - buy:
+                profit = price - buy
 
-        return 0
+        return profit
 
 
 # 테스트
 if __name__ == "__main__":
     test_case = [
+        {
+            "input": [3, 2, 6, 5, 0, 3],
+            "expected": 4
+        },
         {
             "input": [2, 4, 1],
             "expected": 2
