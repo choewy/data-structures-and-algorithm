@@ -22,6 +22,7 @@ class Solution:
         return 0
 
 
+# 테스트
 if __name__ == "__main__":
     test_case = [
         {
