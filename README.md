@@ -1,6 +1,8 @@
-# 항해99 Chapter 2 - 자료구조/알고리즘
+# 항해99 Chapter 2 - 자료구조 및 알고리즘과 CS 기초
 
-## TIL
+## 자료구조 및 알고리즘
 
-- [x] 알고리즘 개요 및 문자열과 배열
-- [x] 연결 리스트
+- [String and Array](/data-structure-and-algorithm/01-string-and-array/)
+- [Linked List](/data-structure-and-algorithm/02-linked-list/)
+
+## CS 기초
