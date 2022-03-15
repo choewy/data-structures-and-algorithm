@@ -2,8 +2,10 @@
 
 ## 자료구조 및 알고리즘
 
-- [String and Array](/data-structure-and-algorithm/01-string-and-array/)
-- [Linked List](/data-structure-and-algorithm/02-linked-list/)
+- [문자열과 배열](/data-structure-and-algorithm/01-string-and-array/)
+- [연결 리스트](/data-structure-and-algorithm/02-linked-list/)
+- [스택](/data-structure-and-algorithm/03-stack/)
+- [큐](/data-structure-and-algorithm/04-queue/)
 
 ## CS 기초
 
