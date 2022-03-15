@@ -12,8 +12,6 @@
 
 이 둘은 노드의 값을 기준으로 오름차순으로 정렬되어 있으며, 가장 왼쪽에 있는 노드가 각 연결 리스트의 head라고 할 수 있다. 그렇다면, 임시 노드를 생성하여 head로 정해놓고, 주어진 연결 리스트 2개의 노드 값을 비교한 결과에 따라 임시 노드 뒤에 연결시키면 되지 않을까라는 생각으로 문제에 접근하였다. 이를 그림과 설명으로 나타내보면 다음과 같다.
 
-> 코드에 남긴 주석과 함께 보면 훨씬 더 직관적으로 이해할 수 있을 것이다.
-
 #### 0. 새로운 연결 리스트의 head가 되어줄 Dummy 노드를 생성한다(이 리스트의 현재 노드의 포인터를 current라고 명명하였다).
 
 <div align="center">
@@ -54,13 +52,13 @@
  
 <div align="center">
     <img width="300" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
-<div align="center">
+</div>
 
 #### 6. node2에 위치한 노드만 존재하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다.
 
 <div align="center">
     <img width="400" src="images/6_link.png">
-<div align="center">
+</div>
 
 #### 7. 새롭게 재구성된 연결 리스트에서 head는 제외힌 싱테러 반환하여야 하므로, `head`의 자식 노드(head.next)를 최종 결과로 반환한다.
 
