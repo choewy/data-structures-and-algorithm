@@ -1,193 +1,44 @@
-# leetcode
-    
-## ✔ [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+## 049. Group Anagrams
 
-### 내용
+- [문제내용](https://leetcode.com/problems/group-anagrams/)
+- [문제풀이](https://choewy.tistory.com/128)
 
-애너그램은 특정 문자열의 문자를 재배치하여 만든 새로운 문자열이며, 문제에서는 여러 개의 문자열이 배열로 주어질 때 애너그램으로 짝짓고 반환할 것을 요구하였다. 문제를 보자마자 엑셀에서의 '중복 제거'가 떠올랐다. 즉, 특정 대상의 통계를 구하기 위해서는 해당 대상을 중복 제거하여야 한다. 이를 가능케 하는 방법으로 다음과 같이 크게 2가지를 떠올려보았다.
+## 409. Longest Palindrome
 
-1. 문자열을 구성하는 문자의 ascii 코드의 총 합을 기준으로 중복 제거가 가능하다.
-2. 문자열을 구성하는 문자를 정렬하면 중복을 제거할 수 있다.
+- [문제내용](https://leetcode.com/problems/longest-palindrome/)
+- [문제풀이](https://choewy.tistory.com/129)
 
-이 중에서 첫 번째 방법보다는 두 번째 방법이 훨씬 직관적인 코드를 작성할 수 있을 것으로 예상되어 두 번째 방법으로 시도해보았다.
+## 015. 3Sum
 
-#### 1. 딕셔너리의 key는 문자열의 문자를 정렬하여 만든 새로운 문자열로 하고, value는 빈 리스트로 한다.
- 
-```python
-groups = {''.join(sorted(word)): [] for word in strs}
-```
+- [문제내용](https://leetcode.com/problems/3sum/)longest-palindrome/)
+- [문제풀이](https://choewy.tistory.com/130)
 
-#### 2. 입력받은 문자열 리스트를 반복하는 동안 key 값을 현재 문자를 정렬한 새로운 문자열로 하여 `1`의 딕셔너리에 접근하고, key에 해당하는 리스트에 현재 문자열을 추가한다.
-   
-```python
-for word in strs:
-    groups[''.join(sorted(word))].append(word)
-```
+## 561. Array Partition I
 
-#### 3. `1`의 딕셔너리에서 value만 리스트로 반환한다.
+- [문제내용](https://leetcode.com/problems/array-partition-i/)longest-palindrome/)
+- [문제풀이](https://choewy.tistory.com/131)
 
-```python
-return list(groups.values())
-```
+## 042. Trapping Rain Water
 
-## ✔ [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
+- [문제내용](https://leetcode.com/problems/trapping-rain-water/)
+- 문제풀이 : 작성필요
 
-### 내용
+## 001. Two Sum
 
-팰린드롬은 문자열의 가운데를 기준으로 하여 2개로 나누었을 때, 첫 번째 문자열과 두 번째 문자열의 역순이 같은 문자열을 말하며 다음과 같이 규칙성을 정리해보았다.
+- [문제내용](https://leetcode.com/problems/two-sum/)
+- 문제풀이 : 작성필요
 
-1. 문자열을 구성하는 문자의 개수가 모두 짝수인 경우 모든 문자를 팰린드롬으로 배치 가능 `ex) 'aabbcc' -> 'aabbcc'`
-2. 문자열을 구성하는 문자의 개수 중 홀수가 포함되어 있는 경우 개수가 홀수인 문자를 짝수로 활용하고, 가운데에 홀수인 문자로 하여 팰린드롬으로 배치 가능 `ex) 'aaabbbccc' -> 'abcccba'`
+## 121. Best Time to Buy and Sell Stock
 
-따라서. 문자열을 구성하는 문자의 개수가 홀수인 경우 이를 짝수로 만들고, 문자열의 가운데에 끼워줄 홀수 개의 문자 1개를 나중에 더하는 방식으로 접근하였다.
+- [문제내용](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- 문제풀이 : 작성필요
 
-#### 1. 문자열을 구성하는 문자의 개수를 파악하여 딕셔너리에 저장한다.
+## 125. Valid Palindrome
 
-```python
-counters = {c: s.count(c) for c in s}
-```
+- [문제내용](https://leetcode.com/problems/valid-palindrome/)
+- 문제풀이 : 작성필요
 
-#### 2. 문자 중에 홀수가 있는지 파악하기 위한 변수를 정의하고, 아직까지는 없다는 의미인 0으로 초기화한다.
+## 238. Product of Array Except Self
 
-```python
-is_exist_odd = 0
-```
-
-#### 3. 반복문을 통해 `1`의 딕셔너리의 key, value를 순차적으로 불러오고, 현재 value가 홀수인 경우 해당 value를 짝수로 만든다. 그리고, 홀수개인 문자가 존재하므로 `2`의 값을 1로 변경한다.
-
-```python
-for character, count in counters.items():
-    if count % 2 == 1:
-        counters[character] = count - 1
-        is_exist_odd = 1
-```
-
-#### 4. `3`의 과정으로 인해 전부 짝수가 된 `1`의 딕셔너리의 value를 모두 합산한 후, 홀수개인 문자를 가운데에 추가하기 위해 `2`의 값을 더한다.
-
-```python
-return sum(list(counters.values())) + is_exist_odd
-```
-
-## ❌ [15. 3Sum](https://leetcode.com/problems/3sum/)
-
-### 내용
-
-문제에서는 정수 값을 리스트로 입력받아 세 개의 요소로 구성된 2차원 리스트(`ex) [[i, j, k], [x, y, z]]`로 반환할 것을 요구하고 있다(이때, 하나의 리스트(`[i, j, k]`)의 값은 서로 중첩되면 안 되며, 요소의 합이 0이 되어야 한다). 약 2시간 동안 다음과 같은 두 번의 시도를 하였는데 모두 실패하였고, 결국에는 교재의 풀이 과정을 들여다볼 수 밖에 없었다.
-
-1. 세 개의 요소를 가진 리스트를 만들기 위해 반복문으로 접근하였으나 시간 초과로 인해 실패하였다.
-2. 교재에서 언급한 투 포인터 방식과 유사하게 구현은 하였으나, 중복 제거 처리 및 이미 확인한 값을 건너뛰는 코드를 구현하지 않아 실패하였다.
-
-실패 내용 중 첫 번째 방식과 같이 매우 단순 무식한 알고리즘을 브루트 포스라고 한다. 이 방식으로 문제를 해결하려는 경우 시간 복잡도는 O(N<sup>(반복문 중첩 수)</sup>)이므로, 문제에서 요구한 시간을 초과하게 된다.
-
-투 포인터 방식은 단어의 의미 그대로 대개는 시작과 끝점 또는 왼쪽과 오른족 포인터 두 지점을 기준으로 범위를 좁혀나가는 방식이다. 이는 정렬된 리스트에서 범위를 좁혀나가는데 유용하다.
-
-#### 1. 입력받은 리스트를 오름차순으로 정렬하고, 총 합이 0인 리스트를 결과로 저장하기 위해 빈 리스트로 초기화한다.
-
-```python
-nums.sort()
-groups = []
-```
-
-#### 2. 두 개의 포인터를 각각 첫 번째 요소와 마지막 요소를 가리키도록 초기화할 것이므로 리스트의 총 길이에서 2만큼 빼준 만큼만 반복을 수행하고, 요소의 값이 같은 경우 중복 수행되지 않도록 처리한다.
-
-```python
-for i in range(len(nums) - 2):
-    if i > 0 and nums[i] == nums[i - 1]:
-        continue
-    left, right = i + 1, len(nums) - 1
-```
-
-#### 3. 두 개의 포인터가 서로 겹친 후 지나치게 되면 존재하지 않는 범위를 찾게 되므로 `2`의 반복문 안에서 왼쪽 포인터의 인덱스가 오른쪽 포인터의 인덱스보다 작을때에만 요소들(`i-1`, `i`, `i+1`)의 합계를 구하도록 반복한다.
-
-```python
-for i in range(len(nums) - 2):
-    # ... (2) ...
-
-    while left < right:
-        sum = nums[i] + nums[left] + nums[right]
-```
-
-#### 4. `3`의 반복문 안에서 구한 3개의 요소 합계가 음수인 경우 두 개의 포인터 중 더 작은 값을 가리키는 왼쪽 포인터를 우측으로 한 칸 이동시키고, 요소의 합계가 양수인 경우 두 개의 포인터 중 더 큰 값을 가리키는 오른쪽 포인터를 왼쪽으로 한 칸 이동시키면서 범위를 줄여나가도록 한다. 만약, 요소 합계가 0이 된다면 `1`의 리스트에 해당 요소들을 리스트로 추가한다.
-
-```python
-for i in range(len(nums) - 2):
-    # ... (2) ...
-
-    while left < right:
-        # ... (3) ...
-
-        if sum < 0:
-            left += 1
-
-        elif sum > 0:
-            right -= 1
-
-        else:
-            groups.append([nums[i], nums[left], nums[right]])
-```
-
-#### 5. 리스트를 오름차순으로 정렬하였기 때문에 같은 값이 바로 뒤에 나타날 수 있다. 따라서, `4`의 마지막 조건(합계가 0일때)이 수행된 후에는 같은 값에 대한 검사가 수행되지 않도록 조건에 맞게 포인터를 이동시킨다.
-
-```python
-for i in range(len(nums) - 2):
-    # ... (2) ...
-
-    while left < right:
-        # ... (3) ...
-
-        else:
-            # ... (4) ...
-            
-            while left < right and nums[left] == nums[left + 1]:
-                left += 1
-
-            while left < right and nums[right] == nums[right - 1]:
-                right -= 1
-```
-
-#### 6. 또한, 현재 포인터 범위에서는 요소 3개의 합이 0인 지점을 이미 찾았기때문에 더 이상 찾을 수 없으므로 포인터의 범위를 각각 한 칸씩 줄여준다. 이어서 반복문이 종료되면 `1`의 리스트를 반환하도록 한다.
-
-```python
-for i in range(len(nums) - 2):
-    # ... (2) ...
-
-    while left < right:
-        # ... (3) ...
-
-        else:
-            # ... (4) ...
-            # ... (5) ...
-            
-            left += 1
-            right -= 1
-
-return groups
-```
-
-## ✔ [561. Array Partition I](https://leetcode.com/problems/array-partition-i/)
-
-### 내용
-
-문제에서는 길이가 2n인 정수 리스트를 입력받고, 정수를 n쌍으로 묶은 후 각각의 쌍의 최소값을 합한 결과가 최대가 되도록 하여 반환할 것을 요구하고 있다. 내용을 이해하는데 약 30분 정도 소요되었으며, 생각보다 간단하게 해결할 수 있었다. 길이가 6인 정수 리스트를 입력 받는 경우 n은 3이 되고, 리스트를 3조각으로 나누고, 나누어진 조각의 최소값들을 모두 더했을때 가장 큰 값이 되어야 하는 것이다. 
-
-#### 1. 입력받는 리스트를 오름차순으로 정렬하고, 합계를 0으로 초기화한다.
-
-```python
-nums.sort()
-sum = 0
-```
-
-#### 2. 입력받은 리스트를 반복하면서 짝수`(0, 2, ..., 2n)` 번째 인덱스에 해당하는 값을 `1`의 합계에 더하고, 반복이 종료되면 합계를 반환한다.
-
-```python
-for i in range(0, len(nums), 2):
-    sum += nums[i]
-
-return sum
-```
-
-#### +) 슬라이싱을 사용하면 코드 한 줄로 문제를 해결할 수 있다.
-
-```python
-return sum(nums.sorted()[::2])
-```
+- [문제내용](https://leetcode.com/problems/product-of-array-except-self/)
+- 문제풀이 : 작성필요
