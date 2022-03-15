@@ -8,7 +8,7 @@
 
 문제에서 주어진 예시(`list1 = [1, 2, 4]`, `list2 = [1, 3, 4]`)를 그림으로 나타내면 다음과 같다.
 
-<img width="600" src="images/0_0_current.png">
+<img width="400" src="images/0_0_current.png">
 
 이 둘은 노드의 값을 기준으로 오름차순으로 정렬되어 있으며, 가장 왼쪽에 있는 노드가 각 연결 리스트의 head라고 할 수 있다. 그렇다면, 임시 노드를 생성하여 head로 정해놓고, 주어진 연결 리스트 2개의 노드 값을 비교한 결과에 따라 임시 노드 뒤에 연결시키면 되지 않을까라는 생각으로 문제에 접근하였다. 이를 그림과 설명으로 나타내보면 다음과 같다.
 
@@ -16,39 +16,57 @@
 
 #### 0. 새로운 연결 리스트의 head가 되어줄 Dummy 노드를 생성한다(이 리스트의 현재 노드의 포인터를 current라고 명명하였다).
 
-<img width="600" src="images/0_1_dummy.png">
+<div align="center">
+    <img width="400" src="images/0_1_dummy.png">
+</div>
 
 #### 1. 입력받은 list1와 list2의 포인터를 각각 node1, node2로 하고, 값을 비교한다. 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 2번 그림).
 
-<img width="600" src="images/1_link.png">
+<div align="center">
+    <img width="400" src="images/1_link.png">
+</div>
 
 #### 2. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 3번 그림).
 
-<img width="600" src="images/2_link.png">
+<div align="center">
+    <img width="400" src="images/2_link.png">
+</div>
 
 #### 3. node1에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node1.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 4번 그림).
 
-<img width="600" src="images/3_link.png">
+<div align="center">
+    <img width="400" src="images/3_link.png">
+</div>
 
 #### 4. node2에 위치한 노드의 값이 더 작으므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> 결과 5번 그림).
 
-<img width="600" src="images/4_link.png">
+<div align="center">
+    <img width="400" src="images/4_link.png">
+</div>
 
 #### 5. node1과 node2에 위치한 노드의 값이 동일하므로 `current`의 다음 포인터(`current.next`)를 node1의 위치로 변경하고, `node1`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다(이어서 node1과 node2의 값 비교 -> node1에 위치한 노드가 존재하지 않으므로 반복 종료).
 
-<img width="600" src="images/5_link.png">
+<div align="center">
+    <img width="400" src="images/5_link.png">
+</div>
 
-> 본 내용은 leetcode에서 제공한 아래 그림을 토대로 작성하였기 때문에 `그림 1`(node2로 이동), `그림 5`(node1로 이동)와 같이 값이 동일한 경우 포인터를 어디로 변경할 것인지 헷갈릴 수 있다. 결론만 말하자면, 두 개의 노드 값이 동일한 경우 node1, node2 중 아무거나 선택해도 무방하다.
-> 
-> <img width="400" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
+본 내용은 leetcode에서 제공한 아래 그림을 토대로 작성하였기 때문에 `그림 1`(node2로 이동), `그림 5`(node1로 이동)와 같이 값이 동일한 경우 포인터를 어디로 변경할 것인지 헷갈릴 수 있다. 결론만 말하자면, 두 개의 노드 값이 동일한 경우 node1, node2 중 아무거나 선택해도 무방하다.
+ 
+<div align="center">
+    <img width="300" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg">
+<div align="center">
 
 #### 6. node2에 위치한 노드만 존재하므로 `current`의 다음 포인터(`current.next`)를 node2의 위치로 변경하고, `node2`의 포인터는 자식 노드(`node2.next`)를 가리키도록 변경한다.
 
-<img width="600" src="images/6_link.png">
+<div align="center">
+    <img width="400" src="images/6_link.png">
+<div align="center">
 
 #### 7. 새롭게 재구성된 연결 리스트에서 head는 제외힌 싱테러 반환하여야 하므로, `head`의 자식 노드(head.next)를 최종 결과로 반환한다.
 
-<img width="600" src="images/7_link.png">
+<div align="center">
+    <img width="400" src="images/7_link.png">
+</div>
 
 ### 참고자료
 
