@@ -6,5 +6,7 @@
 
 <div align="center">
     <img width="600" src="https://ww.namu.la/s/b7785ff70f623fedbcae126015a3ae0a18b2f3a785bdd691d803aad2b10aee91f7b3fc438aadd3676cb84b9608ac18c4ce4dcc9a35eed34a61a2ffffff9b56eb2690d1ecbc99f7aa87a3e5387dfb8c90">
+</div>
+<div align="center">
     큐(출처 - 나무위키)
 </div>

@@ -6,5 +6,7 @@
 
 <div align="center">
     <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/1200px-Data_stack.svg.png">
+</div>
+<div align="center">
     스택(출처 - 위키백과)
 </div>
