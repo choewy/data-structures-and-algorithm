@@ -5,5 +5,6 @@
 스택의 주요 연산에는 대표적으로 요소를 컬렉션에 추가하는 `push`와 가장 최근에 삽입된 요소를 꺼낸 후 제거하는 `pop`이 있다. 이는 거의 모든 애플리케이션 개발에 사용되는 자료구조이며, 스택과 연관된 알고리즘을 제대로 이해하는지에 따라 기본 알고리즘의 설계 가능 여부가 결정되기도 할만큼 중요하다.
 
 <div align="center">
-    <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/1200px-Data_stack.svg.png">스택(출처 - 위키백과)</img>
+    <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/1200px-Data_stack.svg.png">
+    스택(출처 - 위키백과)
 </div>
