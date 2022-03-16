@@ -4,8 +4,8 @@ from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         hashitems = {n: nums.count(n) for n in set(nums)}.items()
-        hashfilter = sorted(hashitems, key=lambda x: (-x[1], x[0]))[:k]
-        return [x[0] for x in hashfilter]
+        hashvalues = sorted(hashitems, key=lambda x: (-x[1], x[0]))[:k]
+        return [x[0] for x in hashvalues]
 
 
 if __name__ == "__main__":
