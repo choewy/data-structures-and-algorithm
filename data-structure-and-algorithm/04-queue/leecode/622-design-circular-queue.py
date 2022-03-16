@@ -21,7 +21,6 @@ class MyCircularQueue:
             return False
 
         self.body[self.front] = None
-
         self.front += 1
 
         if self.front == self.size:
