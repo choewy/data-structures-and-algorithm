@@ -2,7 +2,7 @@ class MyCircularQueue:
     def __init__(self, k: int):
         self.size = k
         self.body = [None]*self.size
-        self.len = self.front = self.rear = 0
+        self.front = self.rear = 0
 
     def enQueue(self, value: int) -> bool:
         if self.isFull():
@@ -10,7 +10,6 @@ class MyCircularQueue:
 
         self.body[self.rear] = value
         self.rear += 1
-        self.len += 1
 
         if self.rear == self.size:
             self.rear = 0
@@ -24,7 +23,6 @@ class MyCircularQueue:
         self.body[self.front] = None
 
         self.front += 1
-        self.len -= 1
 
         if self.front == self.size:
             self.front = 0
