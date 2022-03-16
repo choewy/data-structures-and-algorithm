@@ -4,7 +4,7 @@ from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         items = {n: nums.count(n) for n in set(nums)}.items()
-        items = sorted(hashitems, key=lambda x: (-x[1], x[0]))[:k]
+        items = sorted(items, key=lambda x: (-x[1], x[0]))[:k]
         return [x[0] for x in items]
 
 
