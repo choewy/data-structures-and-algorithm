@@ -1,10 +1,7 @@
 # 제출
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        hashtable = {jewel: stones.count(jewel)
-                     for jewel in set(jewels)}
-
-        return sum(hashtable.values())
+        return sum({jewel: stones.count(jewel) for jewel in set(jewels)}.values())
 
 
 # 테스트
