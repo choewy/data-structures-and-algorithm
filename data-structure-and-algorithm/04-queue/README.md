@@ -20,7 +20,6 @@
 - [문제내용](https://leetcode.com/problems/implement-queue-using-stacks/)
 - [문제풀이](https://choewy.tistory.com/133)
 
-
 ### 622. Design Circular Queue
 
 - [문제내용](https://leetcode.com/problems/design-circular-queue/)
