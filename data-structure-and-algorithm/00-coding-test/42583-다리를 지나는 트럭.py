@@ -1,4 +1,4 @@
-def solution(bridge_length: int, bridge_weight: int, trucks: list):
+def solution(bridge_length: int, bridge_weight: int, trucks: list) -> int:
     trucks.reverse()
 
     time = 0

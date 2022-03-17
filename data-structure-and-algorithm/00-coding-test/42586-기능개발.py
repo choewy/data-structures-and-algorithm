@@ -1,4 +1,4 @@
-def solution(progresses, speeds):
+def solution(progresses: list, speeds: list) -> list:
     counts = []
 
     days = [((100-p)//s)+1 if (100-p)/s > (100-p)//s else (100-p)//s
