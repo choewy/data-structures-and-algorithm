@@ -1,7 +1,7 @@
 def solution(progresses, speeds):
     counts = []
 
-    # 진행률을 기반으로 며칠 소요될 것인지 계산
+    # 진행률을 기반으로 며칠 소요될 것인지 계산(올림 처리)
     days = [((100-p)//s)+1 if (100-p)/s > (100-p)//s else (100-p)//s
             for p, s in zip(progresses, speeds)]
 
