@@ -9,7 +9,7 @@ else:
     for _ in range(int(input())):
         fc, tc = map(int, input().split())
 
-        # 양방향으로 해야됨
+        # 양방향으로 수정
         pares[fc-1].append(tc-1)
         pares[tc-1].append(fc-1)
 
