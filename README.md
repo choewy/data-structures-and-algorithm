@@ -7,6 +7,7 @@
 - [03 - 스택](/data-structure-and-algorithm/03-stack/)
 - [04 - 큐](/data-structure-and-algorithm/04-queue/)
 - [05 - 해시 테이블](/data-structure-and-algorithm/05-hash-table/)
+- [06 - 그래프](/data-structure-and-algorithm/06-graph/)
 
 ## CS 기초
 
