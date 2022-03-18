@@ -48,6 +48,7 @@ class Solution2:
                 return
 
             grid[rx][cy] = "0"
+
             for i in range(4):
                 recursive(rx+dx[i], cy+dy[i])
             return

@@ -12,7 +12,7 @@ class Solution1:
             return []
 
         if len(digits) == 1:
-            return dials[digits]
+            return list(dials[digits])
 
         chars = [dials[digit] for digit in digits]
         res = list(chars[0])
