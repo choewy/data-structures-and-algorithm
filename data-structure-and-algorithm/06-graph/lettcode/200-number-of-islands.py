@@ -1,7 +1,7 @@
 from typing import List
 
 
-# iterative
+# DFS(iterative)
 class Solution1:
     def numIslands(self, grid: List[List[str]]) -> int:
         dx = [0, 0, -1, 1]
@@ -32,7 +32,7 @@ class Solution1:
         return cnt
 
 
-# iterative
+# DFS(recursive)
 class Solution2:
     def numIslands(self, grid: List[List[str]]) -> int:
 
@@ -65,8 +65,43 @@ class Solution2:
         return cnt
 
 
+# BFS
+class Solution3:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        dx = [0, 0, -1, 1]
+        dy = [-1, 1, 0, 0]
+
+        rows = len(grid)
+        cols = len(grid[0])
+        cnt = 0
+
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] != '1':
+                    continue
+
+                cnt += 1
+                q = [(row, col)]
+
+                while q:
+                    x, y = q[0]
+                    q = q[1:]
+
+                    for i in range(4):
+                        nx = x + dx[i]
+                        ny = y + dy[i]
+
+                        if nx < 0 or nx >= rows or ny < 0 or ny >= cols or grid[nx][ny] != '1':
+                            continue
+
+                        grid[nx][ny] = '0'
+                        q.append((nx, ny))
+
+        return cnt
+
+
 if __name__ == "__main__":
-    solution = Solution2()
+    solution = Solution3()
     print(solution.numIslands([
         ["1", "1", "1", "1", "0"],
         ["1", "1", "0", "1", "0"],
