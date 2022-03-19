@@ -32,7 +32,8 @@ for row in range(rows):
         blocks.append(0)
         recursive(row, col, cnt-1)
 
-blocks.sort()
 print(cnt)
+
+blocks.sort()
 for block in blocks:
     print(block)
