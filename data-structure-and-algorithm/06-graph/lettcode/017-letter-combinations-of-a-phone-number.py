@@ -45,4 +45,14 @@ class Solution2:
 
 if __name__ == "__main__":
     solution = Solution2()
-    print(solution.letterCombinations('234'))
+
+    # TESTCASE 1
+    print(solution.letterCombinations('234') == [
+        "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"
+    ])
+
+    # TESTCASE 2
+    print(solution.letterCombinations('') == [])
+
+    # TESTCASE 3
+    print(solution.letterCombinations('2') == ["a", "b", "c"])
