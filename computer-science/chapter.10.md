@@ -65,6 +65,7 @@
         <b>논리곱과 논리합</b>
       </summary>
       <div style="margin: 10px 0;">
+        <p>
           <ul>
               <li>OR는 +, AND는 ×, NOT은 1-E을 의미한다.</li>
               <pre><code><span>A + B = A OR B = A 또는 B</span></code></pre>
@@ -76,6 +77,7 @@
               <img width="400" src="./images/02_01_chapter10.png">
               <img width="400" src="./images/02_02_chapter10.png">
           </ul>
+          <p>
       </div>
     </details>
 </p>
