@@ -73,8 +73,8 @@
               <p>수컷을 M, 암컷을 F, 흰색을 W라고 했을 때, 흰색 암컷 고양이는 다음과 같은 논리식으로 나타낼 수 있다.</p>
               <pre><code><span>F × W = 1 × 1 = 1</span></code></pre>
               <li>병렬 회로는 OR, 직렬 회로는 AND</li>
-              <img width="400" src="/images/02_01_chapter10.png">
-              <img width="400" src="/images/02_02_chapter10.png">
+              <img width="400" src="./images/02_01_chapter10.png">
+              <img width="400" src="./images/02_02_chapter10.png">
           </ul>
       </div>
     </details>
