@@ -1,6 +1,15 @@
-# 챕터 10 - 논리와 스위치
+# 논리와 스위치
 
-한 줄 요약 : 챕터 10은 대수학과 논리연산의 연관성 및 논리연산의 원리를 아리스토텔레스의 삼단논법, 고양이, 전구 회로 등의 예시를 통해 설명하고 있다.
+<p>
+<details >
+  <summary>
+    <b>한 줄 요약</b>
+  </summary>
+  <div style="margin: 10px 0;">
+  <p>대수학과 논리연산의 연관성 및 논리연산의 원리를 아리스토텔레스의 삼단논법, 고양이, 전구 회로 등의 예시를 통해 설명하고 있다.<p>
+  </div>
+</details>
+</p>
 
 <p>
 <details >
@@ -65,7 +74,6 @@
         <b>논리곱과 논리합</b>
       </summary>
       <div style="margin: 10px 0;">
-        <p>
           <ul>
               <li>OR는 +, AND는 ×, NOT은 1-E을 의미한다.</li>
               <pre><code><span>A + B = A OR B = A 또는 B</span></code></pre>
@@ -77,7 +85,6 @@
               <img width="400" src="./images/02_01_chapter10.png">
               <img width="400" src="./images/02_02_chapter10.png">
           </ul>
-          <p>
       </div>
     </details>
 </p>
