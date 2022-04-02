@@ -42,10 +42,10 @@ def solution(mn: List[int] = None, box: List[int] = None) -> int:
     dcs = [0, 0, -1, 1]
 
     q, rcs = [], []
-    for row in range(n):
-        for col in range(m):
-            if box[row][col] == 1:
-                rcs.append((row, col))
+    for f in range(n):
+        for c in range(m):
+            if box[r][c] == 1:
+                rcs.append((r, c))
     q.append(rcs)
 
     day = 0
