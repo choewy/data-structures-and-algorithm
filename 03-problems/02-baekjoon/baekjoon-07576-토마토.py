@@ -59,9 +59,9 @@ def solution(mn: List[int] = None, box: List[int] = None) -> int:
                 nr, nc = r + dr, c + dc
                 if nr < 0 or nr >= n or nc < 0 or nc >= m or box[nr][nc] != 0:
                     continue
+
                 box[nr][nc] = 1
-                if (nr, nc) not in q:
-                    nrcs.append((nr, nc))
+                nrcs.append((nr, nc))
         if nrcs:
             day += 1
             q.append(nrcs)
