@@ -41,30 +41,30 @@ def solution(mn: List[int] = None, box: List[int] = None) -> int:
     drs = [-1, 1, 0, 0]
     dcs = [0, 0, -1, 1]
 
-    q, rc = [], []
+    q, rcs = [], []
     for row in range(n):
         for col in range(m):
             if box[row][col] == 1:
-                rc.append((row, col))
-    q.append(rc)
+                rcs.append((row, col))
+    q.append(rcs)
 
     day = 0
     while q:
-        rc = q[0]
+        rcs = q[0]
         q = q[1:]
 
-        nrc = []
-        for r, c in rc:
+        nrcs = []
+        for (r, c) in rcs:
             for dr, dc in zip(drs, dcs):
                 nr, nc = r + dr, c + dc
                 if nr < 0 or nr >= n or nc < 0 or nc >= m or box[nr][nc] != 0:
                     continue
                 box[nr][nc] = 1
                 if (nr, nc) not in q:
-                    nrc.append((nr, nc))
-        if nrc:
+                    nrcs.append((nr, nc))
+        if nrcs:
             day += 1
-            q.append(nrc)
+            q.append(nrcs)
 
     for row in box:
         if row.count(0):
