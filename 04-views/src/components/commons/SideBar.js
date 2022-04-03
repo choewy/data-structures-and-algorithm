@@ -1,12 +1,11 @@
 import withStyles from "@mui/styles/withStyles";
 import IconButton from '@mui/material/IconButton';
 import Drawer from "@mui/material/Drawer";
-import { useTheme } from "@emotion/react";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Divider from '@mui/material/Divider';
 import SideContentMenus from "./SideContentMenus";
 import SideMainMenus from "./SideMainMenus";
+import ListItem from "@mui/material/ListItem";
 
 const styles = (theme) => ({
     drawer: {
@@ -29,7 +28,6 @@ const styles = (theme) => ({
 const drawerWidth = 240;
 
 const SideBar = (props) => {
-    const theme = useTheme();
     const { classes, open, navbarCloseHandler } = props;
 
     return (
@@ -39,8 +37,11 @@ const SideBar = (props) => {
             anchor="left"
             open={open}>
             <div className={classes.drawerHeader}>
+                <ListItem >
+                    최원영(choewy)
+                </ListItem>
                 <IconButton onClick={navbarCloseHandler}>
-                    {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                    <ChevronLeftIcon />
                 </IconButton>
             </div>
             <Divider />
