@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import NavBar from "./components/commons/NavBar";
 import SideBar from "./components/commons/SideBar";
 import Paper from "@mui/material/Paper";
-import useComponents from "./components/Components";
+import useComponents from "./components/contents/Components";
 import Helmets from "./components/commons/Helmets";
 
 const styles = (theme) => ({
@@ -15,7 +15,8 @@ const styles = (theme) => ({
     overflowX: 'hidden'
   },
   components: {
-    marginTop: 20
+    marginTop: 20,
+    paddingBottom: 20,
   }
 });
 
