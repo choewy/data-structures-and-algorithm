@@ -4,7 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Link } from "react-router-dom";
-import useComponents from "../Components";
+import useComponents from "../contents/Components";
 
 const styles = (theme) => ({
     menuLink: {
