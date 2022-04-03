@@ -5,6 +5,8 @@ import { ThemeProvider } from '@mui/styles'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import './index.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = document.getElementById('root');
 const theme = createTheme({});
@@ -12,7 +14,9 @@ ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={theme}>
-        <App />
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
