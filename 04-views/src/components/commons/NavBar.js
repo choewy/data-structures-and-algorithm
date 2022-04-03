@@ -84,7 +84,7 @@ const NavBar = (props) => {
           </div>
           <InputBase
             className={classes.searchInputBase}
-            placeholder="검색어"
+            placeholder="아직 구현하지 않았습니다."
             inputProps={{ 'aria-label': 'search' }}
             sx={{ color: '#fff' }} />
         </div>
