@@ -50,9 +50,9 @@ const ContentCard = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">공유하기</Button>
-                <a {...aProps}><Button size="small">관련문제</Button></a>
                 <Link {...linkProps}><Button size="small">자세히</Button></Link>
+                <a {...aProps}><Button size="small">문제보기</Button></a>
+                {/* <Button size="small">공유하기</Button> */}
             </CardActions>
         </Card>
     );
