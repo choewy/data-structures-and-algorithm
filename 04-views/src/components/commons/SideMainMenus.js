@@ -36,6 +36,7 @@ const SideMainMenus = (props) => {
                 const aProps = {
                     key, href,
                     target: '_blank',
+                    rel: "noreferrer",
                     className: classes.a
                 };
                 return (
