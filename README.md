@@ -6,5 +6,5 @@
 # Graph Search(BFS/DFS)
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/70950533/161430756-aabafb24-148b-40e2-a302-5dae053e4f26.gif" width="600">
+  <img src="https://user-images.githubusercontent.com/70950533/161431128-e704fed3-e891-47da-9a30-81d7accba7b1.gif" width="600">
 </div>
