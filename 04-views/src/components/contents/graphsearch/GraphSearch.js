@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 
-const styles = (theme) => ({
+const styles = () => ({
     wrapper: {
         width: '100%',
         display: 'flex',
