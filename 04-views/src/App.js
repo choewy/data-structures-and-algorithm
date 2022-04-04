@@ -8,8 +8,9 @@ import SideBar from "./components/commons/SideBar";
 import Paper from "@mui/material/Paper";
 import useComponents from "./components/contents/Components";
 import Helmets from "./components/commons/Helmets";
+import Utteranc from "./components/commons/Utteranc";
 
-const styles = (theme) => ({
+const styles = () => ({
   app: {
     width: '100%',
     overflowX: 'hidden'
@@ -54,10 +55,19 @@ const App = (props) => {
       <Paper className={classes.components}>
         <Routes>
           {
-            components.map((component, key) => {
+            components.slice(0, 1).map((component, key) => {
               const { path, element } = component;
               const componentProps = { key, path, element };
               return <Route {...componentProps} />;
+            })
+          }
+          {
+            components.slice(1).map((component, key) => {
+              const { path, element } = component;
+              const componentProps = { key, path, element: <>{element}<Utteranc /></> };
+              return (
+                <Route {...componentProps} />
+              );
             })
           }
         </Routes>
