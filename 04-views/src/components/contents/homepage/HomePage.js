@@ -23,7 +23,7 @@ const HomePage = (props) => {
     return (
         <div className={classes.wrapper}>
             {
-                components.splice(1).map((component, key) => {
+                components.slice(1).map((component, key) => {
                     const { title, to, description, href } = component;
                     const cardProps = { key, title, to, description, href }
                     return (
