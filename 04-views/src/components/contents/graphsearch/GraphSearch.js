@@ -151,6 +151,7 @@ const GraphSearch = (props) => {
         const newGrid = [...grid];
 
         let value;
+        if (newGrid[row][col] !== 0) value = 0
         if (picker === 0) value = 1;
         if (picker === 1) value = -1;
         if (picker === 2) value = 0;
