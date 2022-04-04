@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/data-structures-and-algorithm/static/css/main.d3b75abc.css",
-    "main.js": "/data-structures-and-algorithm/static/js/main.8915064d.js",
+    "main.js": "/data-structures-and-algorithm/static/js/main.5de264c0.js",
     "static/js/787.3d11696b.chunk.js": "/data-structures-and-algorithm/static/js/787.3d11696b.chunk.js",
     "index.html": "/data-structures-and-algorithm/index.html",
     "main.d3b75abc.css.map": "/data-structures-and-algorithm/static/css/main.d3b75abc.css.map",
-    "main.8915064d.js.map": "/data-structures-and-algorithm/static/js/main.8915064d.js.map",
+    "main.5de264c0.js.map": "/data-structures-and-algorithm/static/js/main.5de264c0.js.map",
     "787.3d11696b.chunk.js.map": "/data-structures-and-algorithm/static/js/787.3d11696b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d3b75abc.css",
-    "static/js/main.8915064d.js"
+    "static/js/main.5de264c0.js"
   ]
 }
