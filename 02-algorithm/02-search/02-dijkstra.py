@@ -5,6 +5,7 @@ from sys import stdin
 input = stdin.readline
 
 
+# 그리디 알고리즘에 포함
 # 간단한 다익스트라 알고리즘 : O(N^2)
 def simpleSolution(
     nm: List[int] = None,
@@ -60,6 +61,7 @@ def simpleSolution(
             print(distance[i])
 
 
+# 다이나믹 프로그래밍에 포함
 # 개선된 다익스트라 알고리즘 : O(ElogV)
 # (V: 노드의 개수, E 간선의 개수)
 def improvedSolution(
