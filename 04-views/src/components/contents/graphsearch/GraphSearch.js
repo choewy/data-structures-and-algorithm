@@ -38,6 +38,12 @@ const styles = (theme) => ({
     }
 });
 
+const pickerValues = {
+    0: 1,
+    1: -1,
+    2: 0,
+};
+
 const adjacencyPos = [[0, -1], [0, 1], [-1, 0], [1, 0]];
 const size = [15, 15];
 const initGrid = () => {
@@ -151,10 +157,30 @@ const GraphSearch = (props) => {
         const newGrid = [...grid];
 
         let value;
-        if (newGrid[row][col] !== 0) value = 0
-        if (picker === 0) value = 1;
-        if (picker === 1) value = -1;
-        if (picker === 2) value = 0;
+        const pickerValue = pickerValues[picker];
+        const currentCell = grid[row][col];
+
+        if (pickerValue !== currentCell) {
+            value = pickerValue;
+        } else {
+            if (pickerValue === currentCell) {
+                value = 0
+            } else {
+                switch (picker) {
+                    case 0:
+                        value = 1;
+                        break
+                    case 1:
+                        value = -1;
+                        break;
+                    case 2:
+                        value = 0;
+                        break;
+                    default:
+                        break
+                };
+            };
+        };
 
         newGrid[row][col] = value;
         setGrid(newGrid);
