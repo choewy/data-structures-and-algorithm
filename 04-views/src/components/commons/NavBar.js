@@ -57,7 +57,7 @@ const styles = (theme) => ({
 const navBarTitle = 'Algorithm Views';
 
 const NavBar = (props) => {
-  const { classes, open, navbarOpenHandler } = props;
+  const { /*classes,*/ open, navbarOpenHandler } = props;
 
   return (
     <AppBar position="static">
@@ -78,7 +78,7 @@ const NavBar = (props) => {
           sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
           {navBarTitle}
         </Typography>
-        <div className={classes.search}>
+        {/* <div className={classes.search}>
           <div className={classes.searchWrapper}>
             <SearchIcon />
           </div>
@@ -87,7 +87,7 @@ const NavBar = (props) => {
             placeholder="아직 구현하지 않았습니다."
             inputProps={{ 'aria-label': 'search' }}
             sx={{ color: '#fff' }} />
-        </div>
+        </div> */}
       </Toolbar>
     </AppBar>
   )
